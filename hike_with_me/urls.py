@@ -18,8 +18,12 @@ from django.urls import path
 from django.urls import include
 from hike import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'hike_with_me'
 
 urlpatterns = [
     path('', views.index, name='index'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
